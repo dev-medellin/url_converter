@@ -8,4 +8,6 @@ router.get('/', ConvertedUrl.getAllUrlConvert);
 
 router.post('/', ConvertedUrl.postUrlConvert);
 
+router.get('/:id', ConvertedUrl.getByIdConvert);
+
 module.exports = router;
