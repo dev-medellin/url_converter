@@ -65,21 +65,8 @@ export class HomeComponent implements OnInit {
       this.set_url = 'Cannot convert an empty text.......';
       this.validate = false;
     }
-    // if(this.checkoutForm.value.url_send == ''){
-    //   this.set_url = '';
-    // }else{
-    //   this.convertedUrl$ = this.convertUrl
-    // //@ts-ignore
-    // .post(data)
-    // .pipe(tap((e) => ( 
-    //   this.set_url = location.origin+'/redirect/'+code,
-    //   console.log(this.convertedUrl$)
-    //   )));
-  
-    // }
-
-    // this.checkoutForm.reset();
-    // this.checkoutForm.value.url_send = '';
+    this.checkoutForm.reset();
+    this.checkoutForm.value.url_send = '';
   }
 
 

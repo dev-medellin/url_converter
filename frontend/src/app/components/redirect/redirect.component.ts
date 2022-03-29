@@ -29,15 +29,8 @@ export class RedirectComponent implements OnInit {
           //@ts-ignore
           .get(hrefID)
           .pipe(tap((e) => ( 
-                // window.location.href = ''
-                // this.convertedUrl$.subscribe(users => {
-                //   // console.log(users);
-                // }),
                 window.location.href = `${e[0].redirect_url}`
             )));
-
-    // window.location.href = 'https://www.google.com/';
-
   }
 
 }
