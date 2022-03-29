@@ -39,16 +39,19 @@ export class HomeComponent implements OnInit {
     var code = this.makeid(8);
     const data =  {
       redirect  : this.checkoutForm.value.url_send,
-      alias     : location.origin+'/'+code
+      alias     : location.origin+'/redirect/'+code
     };
     if(this.checkoutForm.value.url_send == ''){
       this.set_url = '';
     }else{
-    this.convertedUrl$ = this.convertUrl
+      this.convertedUrl$ = this.convertUrl
     //@ts-ignore
     .post(data)
-    .pipe(tap(() => (console.log('success'))));
-    this.set_url = location.origin+'/'+code;  
+    .pipe(tap((e) => ( 
+      this.set_url = location.origin+'/redirect/'+code,
+      console.log(this.convertedUrl$)
+      )));
+  
     }
 
     // this.checkoutForm.reset();

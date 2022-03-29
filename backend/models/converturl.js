@@ -7,11 +7,14 @@ module.exports = class UrlConvert {
   }
 
   static fetchAll() {
-    return db.execute('SELECT * FROM converted');
+    return db.execute('SELECT * FROM urldata');
   }
 
   static post(redirect,alias) {
-    return db.execute('INSERT INTO converted (redirect_url,alias) VALUES (?,?)', [redirect,alias]);
+    return db.execute('INSERT INTO urldata (redirect_url,alias) VALUES (?,?)', [redirect,alias]);
+    // db.execute("SELECT * FROM urldata WHERE redirect_url = ?", [redirect], function(err, result){
+    //   return db.execute('INSERT INTO urldata (redirect_url,alias) VALUES (?,?)', [redirect,alias]);
+    // })
   }
 
 //   static update(id, item) {
