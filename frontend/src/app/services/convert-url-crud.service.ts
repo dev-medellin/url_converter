@@ -31,10 +31,17 @@ export class ConvertUrlCrudService {
   }
 
   post(urldirected: Partial<UrlConvert>): Observable<any> {
-    console.log(urldirected);
     return this.http
       .post(this.url, urldirected, this.httpOptions)
       .pipe(catchError(this.errorHandlerService.handleError<any>("post")));
+  }
+
+  get(paramID: Partial<UrlConvert>): Observable<any> {
+    console.log(paramID)
+    return this.http
+    .get<UrlConvert[]>(this.url+'/'+paramID, {responseType : "json"}).pipe(
+      tap((e) => console.log(e))
+    )
   }
   
 }
