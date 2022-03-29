@@ -10,6 +10,6 @@ router.post('/', groceryController.postGrocery);
 
 router.put('/', groceryController.putGrocery);
 
-router.delete('/:id', groceryController.deleteGrocery);
+router.get('/:id', groceryController.deleteGrocery);
 
 module.exports = router;

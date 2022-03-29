@@ -9,12 +9,14 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    RedirectComponent,
   ],
   imports: [
     BrowserAnimationsModule,

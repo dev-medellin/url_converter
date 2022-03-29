@@ -12,7 +12,7 @@ import { UrlConvert } from '../model/Url.mode';
 })
 export class ConvertUrlCrudService {
 
-  private url = "http://localhost:3000/converted";
+  private url = "http://localhost:3000/convert";
 
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({ "Content-Type": "application/json" }),
@@ -32,8 +32,16 @@ export class ConvertUrlCrudService {
 
   post(urldirected: Partial<UrlConvert>): Observable<any> {
     return this.http
-      .post<Partial<UrlConvert>>(this.url, urldirected, this.httpOptions)
+      .post(this.url, urldirected, this.httpOptions)
       .pipe(catchError(this.errorHandlerService.handleError<any>("post")));
+  }
+
+  get(paramID: Partial<UrlConvert>): Observable<any> {
+    console.log(paramID)
+    return this.http
+    .get<UrlConvert[]>(this.url+'/'+paramID, {responseType : "json"}).pipe(
+      tap((e) => console.log(e))
+    )
   }
   
 }
